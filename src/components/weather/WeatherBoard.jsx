@@ -2,8 +2,11 @@ import React from 'react'
 import AddToFavourite from './AddToFavourite'
 import WeatherHeadline from './WeatherHeadline'
 import WeatherCondition from './WeatherCondition'
+import { useWeather } from '../../hooks'
 
 const WeatherBoard = () => {
+    const { loading, error, weatherData } = useWeather();
+    console.log(loading, error, weatherData);
     return (
         <div className="container">
             <div
