@@ -1,6 +1,7 @@
 import React from 'react'
 import AddToFavourite from './AddToFavourite'
 import WeatherHeadline from './WeatherHeadline'
+import WeatherCondition from './WeatherCondition'
 
 const WeatherBoard = () => {
     return (
@@ -10,7 +11,7 @@ const WeatherBoard = () => {
                 <div className="grid md:grid-cols-2 gap-10 md:gap-6">
                     <AddToFavourite></AddToFavourite>
                     <WeatherHeadline></WeatherHeadline>
-
+                    <WeatherCondition></WeatherCondition>
                 </div>
             </div>
 
