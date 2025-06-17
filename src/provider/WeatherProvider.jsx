@@ -1,9 +1,12 @@
-import React from 'react'
+import { useWeather } from '../hooks'
 
-const WeatherProvider = () => {
+const WeatherProvider = ({ children }) => {
+    const { weatherData, loading, error } = useWeather();
     return (
-        <div>WeatherProvider</div>
+        <WeatherContext.Provider value={{ weatherData, loading, error }}>
+            {children}
+        </WeatherContext.Provider>
     )
 }
 
-export default WeatherProvider
+export default WeatherProvider;
