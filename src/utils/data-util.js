@@ -17,3 +17,5 @@ function getFormattedDate(value, type, inMS) {
 
     return new Intl.DateTimeFormat('en-US', options).format(date);
 }
+
+export { getFormattedDate };

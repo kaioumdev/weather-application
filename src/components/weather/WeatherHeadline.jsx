@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import PinIcon from "../../assets/pin.svg";
 import { WeatherContext } from "../../context";
+import { getFormattedDate } from "../../utils/data-util";
 const WeatherHeadline = () => {
     const { weatherData } = useContext(WeatherContext);
     const { climate, location, temperature, time } = weatherData;
@@ -16,7 +17,14 @@ const WeatherHeadline = () => {
                     </div>
                 </div>
             </div>
-            <p className="text-sm lg:text-lg">06:09 - Sunday, 9 Dec ‘23</p>
+            {time ? (
+                <p className="text-sm lg:text-lg">
+                    {getFormattedDate(time, "time", false)} - {getFormattedDate(time, "date", false)}
+                </p>
+            ) : (
+                <p className="text-sm lg:text-lg">Loading time...</p>
+            )}
+
         </div>
     )
 }
