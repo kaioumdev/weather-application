@@ -1,3 +1,4 @@
+import { WeatherContext } from '../context';
 import { useWeather } from '../hooks'
 
 const WeatherProvider = ({ children }) => {
