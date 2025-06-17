@@ -68,5 +68,11 @@ const useWeather = () => {
         navigator.geolocation.getCurrentPosition(function (position) {
             fetchWeatherData(position.coords.latitude, position.coords.longitude);
         })
-    }, [])
+    }, []);
+    return {
+        weatherData,
+        error,
+        loading,
+    }
 }
+export default useWeather;
