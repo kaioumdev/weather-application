@@ -33,11 +33,13 @@ function getLocations() {
 
 function getLocationByName(location) {
     if (!location) return null;
-    const filtered = data.filter((item) => item.location.toLowerCase() === location.toLowerCase());
+    const filtered = data.filter((item) => item.location === location);
     if (filtered.length > 0) {
         return filtered[0];
     } else {
         const defaultLocation = { location: "", latitude: 0, longitude: 0 };
         return defaultLocation;
     }
-}
+};
+
+export { getLocations, getLocationByName };
