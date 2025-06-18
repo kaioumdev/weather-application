@@ -1,12 +1,25 @@
 /* eslint-disable no-unused-vars */
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import HeartIcon from "../../assets/heart.svg";
 import HeartRed from "../../assets/heart-red.svg";
-import { FavouriteContext } from "../../context";
+import { FavouriteContext, WeatherContext } from "../../context";
 const AddToFavourite = () => {
     const { addToFavourites, removeFromFavourites, favourites } = useContext(FavouriteContext);
+    const { weatherData } = useContext(WeatherContext);
     const [isFavourite, toggleFavourite] = useState(false);
+    const { latitude, longitude, location } = weatherData;
+    useEffect(() => {
+        const found = favourites.find(fav => fav.location === location);
+        toggleFavourite(found)
+    }, [])
     function handleFavourites() {
+        const found = favourites.find(fav => fav.location === location);
+        if (!found) {
+            addToFavourites(latitude, longitude, location);
+        }
+        else {
+            removeFromFavourites(location);
+        }
         toggleFavourite(!isFavourite);
     }
     return (
