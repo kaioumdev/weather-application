@@ -3,20 +3,14 @@ import WeatherBoard from "./components/weather/WeatherBoard"
 import WeatherProvider from './provider/WeatherProvider';
 import FavouriteProvider from './provider/FavouriteProvider';
 import { LocationProvider } from "./provider";
+import Page from "./Page";
 
 function App() {
   return (
     <LocationProvider>
       <WeatherProvider>
         <FavouriteProvider>
-          <div className="grid place-items-center h-screen">
-            <Header></Header>
-            <main>
-              <section>
-                <WeatherBoard></WeatherBoard>
-              </section>
-            </main>
-          </div>
+          <Page></Page>
         </FavouriteProvider>
       </WeatherProvider>
     </LocationProvider>
